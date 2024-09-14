@@ -1,0 +1,131 @@
+﻿@model SeniorProject.Models.UserModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Success Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: lightskyblue;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login-form {
+            background-color: black;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+        }
+
+        .login-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-header,
+        .card-footer {
+            background-color: green;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px;
+            margin: 0;
+        }
+
+        .card-body {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+            line-height: 3rem;
+            background-color: black;
+            border-top: 1px solid #dee2e6;
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #fff;
+        }
+
+            .navbar .navbar-nav .nav-link {
+                color: white;
+            }
+
+                .navbar .navbar-nav .nav-link:hover {
+                    color: #007bff;
+                }
+
+            .navbar .navbar-brand {
+                color: white;
+            }
+
+                .navbar .navbar-brand:hover {
+                    color: #007bff;
+                }
+
+            .navbar .dropdown-menu {
+                background-color: black;
+            }
+
+                .navbar .dropdown-menu .dropdown-item {
+                    color: white;
+                    transition: none;
+                }
+
+                    .navbar .dropdown-menu .dropdown-item:hover {
+                        color: blue;
+                        background-color: transparent;
+                    }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="container" style="max-width: 500px;">
+            <div class="card login-form">
+                <div class="card-header">
+                    <h4 style="font-weight: bold; color:black;">Login Success!</h4>
+                </div>
+                <div class="card-body">
+                </div>
+                <div class="card-footer">
+                    <p style="font-weight: bold; color:black;">One moment while we redirect you...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function () {
+            window.location.href = "@Url.Action("Index", "Dashboard")";
+        }, 5000);
+    </script>
+
+
+</body>
+
+</html>
