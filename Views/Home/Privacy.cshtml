@@ -11,10 +11,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
         body {
-            padding-top: 56px;
+            padding-top: 20px;
             padding-bottom: 3rem;
             background-color: #f8f9fa;
             font-family: Arial, sans-serif;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: auto;
+            line-height: 3rem;
+            background-color: #f8f9fa;
+            color: black;
+            border-top: 1px solid #dee2e6;
+            text-align: center;
         }
 
         .navbar {
@@ -50,55 +62,126 @@
                         background-color: #f8f9fa;
                     }
 
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: auto;
-            line-height: 3rem;
-            background-color: #f8f9fa;
-            color: #000;
-            border-top: 1px solid #dee2e6;
-            text-align: center;
-        }
-
         .content {
             background-color: #fff;
             color: #000;
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            padding: 30px;
             margin-top: 20px;
+        }
+
+        .section-title {
+            position: relative;
+            padding: 15px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #e9f5ff;
+            color: #007bff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-content {
+            margin-top: 15px;
         }
     </style>
 </head>
 <body>
+
     <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
 
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SeniorProject</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    @if (Context.Session.GetString("UserName") != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+                                Access
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Login" asp-action="Index">Login</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Registration" asp-action="Index">Register</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <div class="container">
-        <div class="content">
-            <h1>@ViewData["Title"]</h1>
-            <p>Use this page to detail your site's privacy policy. Here you can include information about how you collect, use, and protect user data. Make sure to provide clear and comprehensive details to ensure transparency and build trust with your users.</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="content">
+                    <h1 class="section-title">@ViewData["Title"]</h1>
+                    <p>Welcome to our privacy policy page. This page outlines how we collect, use, and safeguard your data. Our goal is to be transparent and ensure that you are well-informed about your data and privacy.</p>
+                </div>
+            </div>
+        </div>
 
-            <h2>Information Collection</h2>
-            <p>Describe what information is collected from users, whether it’s personal data, usage data, or other types of information. Include details about how this information is collected, such as through forms, cookies, or other methods.</p>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="content">
+                    <h2 class="section-title">What Information We Collect</h2>
+                    <p class="section-content">We collect various types of information from users, including personal data (like name and email address), usage data (such as IP addresses and browsing behavior), and other relevant data. This information may be collected through forms, cookies, or other tracking technologies.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="content">
+                    <h2 class="section-title">How We Use Your Information</h2>
+                    <p class="section-content">Your information helps us enhance our website, communicate updates, and manage marketing efforts. We may also share data with trusted third parties for these purposes. We are committed to ensuring your data is used responsibly and in accordance with this policy.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="content">
+                    <h2 class="section-title">How We Protect Your Data</h2>
+                    <p class="section-content">We implement robust security measures to protect your data from unauthorized access, disclosure, or misuse. This includes using data encryption, secure storage practices, and regular security reviews.</p>
+                </div>
+            </div>
+        </div>
 
-            <h2>How We Use Your Information</h2>
-            <p>Explain how the collected information is used. This could include purposes like improving the website, sending updates, or for marketing purposes. Be clear about any third parties that may have access to the data.</p>
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="content">
+                    <h2 class="section-title">Your Data Rights</h2>
+                    <p class="section-content">You have rights regarding your data, including the ability to access, correct, or delete it. To exercise these rights or to make any requests, please contact us using the information provided below.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="content">
+                    <h2 class="section-title">Updates to This Privacy Policy</h2>
+                    <p class="section-content">We may update this privacy policy from time to time. Significant changes will be communicated to you, and we will make sure you are aware of how these changes may affect you. Please review this policy periodically for any updates.</p>
+                </div>
+            </div>
+        </div>
 
-            <h2>Data Protection</h2>
-            <p>Detail the measures you take to protect user information from unauthorized access, disclosure, or misuse. Include information about security protocols, data encryption, and storage practices.</p>
-
-            <h2>Your Rights</h2>
-            <p>Inform users about their rights regarding their data. This might include rights to access, correct, or delete their data. Explain how users can exercise these rights and how they can contact you for any requests.</p>
-
-            <h2>Changes to This Privacy Policy</h2>
-            <p>Include a section about how and when changes to the privacy policy will be communicated to users. Mention if you will notify users of significant changes and how they can stay informed.</p>
-
-            <h2>Contact Us</h2>
-            <p>Provide contact information for users to reach out with any questions or concerns about the privacy policy. This can include an email address, phone number, or contact form.</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="content">
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="section-content">If you have any questions or concerns about this privacy policy, please contact us at seniorprojectco@gmail.com, 1-800-SENIOR-PROJECT, or through our contact form.</p>
+                </div>
+            </div>
         </div>
     </div>
 
