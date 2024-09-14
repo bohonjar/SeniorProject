@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = "User Dashboard";
     string userName = ViewData["UserName"] as string;
 }
 
@@ -14,7 +14,7 @@
         body {
             padding-top: 56px;
             padding-bottom: 3rem;
-            background-color: lightskyblue;
+            background-color: #f8f9fa;
             font-family: Arial, sans-serif;
         }
 
@@ -24,17 +24,18 @@
             width: 100%;
             height: auto;
             line-height: 3rem;
-            background-color: black;
+            background-color: #f8f9fa;
+            color: #000;
             border-top: 1px solid #dee2e6;
             text-align: center;
         }
 
         .navbar {
-            background-color: #fff;
+            background-color: #f8f9fa;
         }
 
             .navbar .navbar-nav .nav-link {
-                color: black;
+                color: #000;
             }
 
                 .navbar .navbar-nav .nav-link:hover {
@@ -42,7 +43,7 @@
                 }
 
             .navbar .navbar-brand {
-                color: black;
+                color: #000;
             }
 
                 .navbar .navbar-brand:hover {
@@ -50,25 +51,24 @@
                 }
 
             .navbar .dropdown-menu {
-                background-color: black;
+                background-color: #fff;
             }
 
                 .navbar .dropdown-menu .dropdown-item {
-                    color: white;
-                    transition: none;
+                    color: #000;
                 }
 
                     .navbar .dropdown-menu .dropdown-item:hover {
-                        color: blue;
-                        background-color: transparent;
+                        color: #007bff;
+                        background-color: #f8f9fa;
                     }
 
         .section {
-            background-color: black;
-            color: white;
+            background-color: #fff;
+            color: #000;
             border-radius: 5px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-            padding: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
             margin-bottom: 20px;
             margin-top: 1rem;
         }
@@ -78,10 +78,10 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: black;
+            background-color: #fff;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 10px;
             margin-top: 1rem;
         }
@@ -91,21 +91,60 @@
             }
 
             .sidebar .nav-link {
-                color: white;
+                color: #000;
             }
 
                 .sidebar .nav-link:hover {
-                    color: blue;
+                    color: #007bff;
                 }
 
             .sidebar .user-header {
-                color: white;
+                color: #000;
                 font-size: 1.2em;
                 margin-bottom: 20px;
             }
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SeniorProject</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    @if (Context.Session.GetString("UserName") != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+                                Access
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Login" asp-action="Index">Login</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Registration" asp-action="Index">Register</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3 mb-4">
@@ -113,15 +152,20 @@
                     <div class="user-header">
                         Welcome back, @userName!
                     </div>
+
                 </div>
             </div>
             <div class="col-lg-9 mb-4">
                 <div class="section">
-                    <!-- Content for the dashboard can be added here -->
+
                 </div>
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+HoX8Ktv5z+Po0iSfka0V6twP1Au5gE2FndcwY6pYFq3e6e+p2EKzI1zzi" crossorigin="anonymous"></script>
 </body>

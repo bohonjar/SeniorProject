@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Registration Successful";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,94 +10,82 @@
     <title>Registration Successful</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
-
         body {
-            background-color: lightskyblue;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            background-color: #f8f9fa;
         }
 
         .modal-dialog {
             display: flex;
             align-items: center;
-            min-height: calc(100% - 1rem);
+            min-height: calc(80% - 20rem);
+            margin-top: 6.5rem;
             justify-content: center;
         }
 
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: auto;
-            line-height: 3rem;
-            background-color: black;
-            border-top: 1px solid #dee2e6;
-            text-align: center;
+        .modal-header, .modal-footer {
+            background-color: #e9ecef;
         }
 
-        .navbar {
-            background-color: #fff;
+        .modal-body {
+            background-color: #ffffff;
         }
 
-            .navbar .navbar-nav .nav-link {
-                color: white;
+        .card {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #004085;
             }
-
-                .navbar .navbar-nav .nav-link:hover {
-                    color: #007bff;
-                }
-
-            .navbar .navbar-brand {
-                color: white;
-            }
-
-                .navbar .navbar-brand:hover {
-                    color: #007bff;
-                }
-
-            .navbar .dropdown-menu {
-                background-color: black;
-            }
-
-                .navbar .dropdown-menu .dropdown-item {
-                    color: white;
-                    transition: none;
-                }
-
-                    .navbar .dropdown-menu .dropdown-item:hover {
-                        color: blue;
-                        background-color: transparent;
-                    }
     </style>
 </head>
 <body>
 
-    <div class="modal" id="successModal">
-        <div class="modal-dialog">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top" style="color: black;">
+
+    </nav>
+
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header" style="background: lightblue;">
-                    <h5 class="modal-title text-center">Registration Successful</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Registration Successful</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="modal-body" style="background: white;">
-                    <div class="card bg-light">
-                        <div class="card-body" style="background: lightblue;">
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body">
                             <h6 class="card-title">Your registration was successful. Here are the details:</h6>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><strong>First Name:</strong> @Model.FirstName</li>
-                                <li class="list-group-item"><strong>Last Name:</strong> @Model.LastName</li>
-                                <li class="list-group-item"><strong>Sex:</strong> @Model.Sex</li>
-                                <li class="list-group-item"><strong>Age:</strong> @Model.Age</li>
-                                <li class="list-group-item"><strong>State:</strong> @Model.State</li>
-                                <li class="list-group-item"><strong>Email:</strong> @Model.Email</li>
-                                <li class="list-group-item"><strong>Username:</strong> @Model.UserName</li>
-                                <li class="list-group-item"><strong>Password:</strong> @Model.Password</li>
-                            </ul>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><strong>First Name:</strong> @Model.FirstName</li>
+                                        <li class="list-group-item"><strong>Last Name:</strong> @Model.LastName</li>
+                                        <li class="list-group-item"><strong>Sex:</strong> @Model.Sex</li>
+                                        <li class="list-group-item"><strong>Age:</strong> @Model.Age</li>
+                                        <li class="list-group-item"><strong>State:</strong> @Model.State</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><strong>Email:</strong> @Model.Email</li>
+                                        <li class="list-group-item"><strong>Username:</strong> @Model.UserName</li>
+                                        <li class="list-group-item"><strong>Password:</strong> @Model.Password</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer text-center" style="background: lightblue;">
+                <div class="modal-footer">
                     <a href="@Url.Action("Index", "Login")" class="btn btn-primary">Login with your new account</a>
                 </div>
             </div>
@@ -101,7 +93,7 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+HoX8Ktv5z+Po0iSfka0V6twP1Au5gE2FndcwY6pYFq3e6e+p2EKzI1zzi" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+HoX8Ktv5z+Po0iSfka0V6twP1Au5gE2FndcwY6pYFq3e6e+p2EKzI1zzi" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
             $('#successModal').modal('show');
@@ -109,7 +101,6 @@
             setTimeout(function () {
                 window.location.href = '@Url.Action("Index", "Login")';
             }, 30000);
-       
         });
     </script>
 </body>

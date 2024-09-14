@@ -1,5 +1,9 @@
 ﻿@model SeniorProject.Models.UserModel
 
+@{
+    ViewData["Title"] = "Login Failed";
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
         body {
-            background-color: lightskyblue;
+            background-color: #fff;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -26,12 +30,11 @@
         }
 
         .login-form {
-            background-color: black;
+            background-color: #fff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 50px;
-            color: white;
         }
 
         .login-title {
@@ -41,12 +44,11 @@
 
         .card-header,
         .card-footer {
-            background-color: red;
-            color: black;
+            background-color: #f8f9fa;
+            color: #000;
             text-align: center;
             font-size: 18px;
             font-weight: bold;
-            color: black;
             padding: 8px;
             margin: 0;
         }
@@ -62,17 +64,18 @@
             width: 100%;
             height: auto;
             line-height: 3rem;
-            background-color: black;
+            background-color: #f8f9fa;
+            color: #000;
             border-top: 1px solid #dee2e6;
             text-align: center;
         }
 
         .navbar {
-            background-color: #fff;
+            background-color: #f8f9fa;
         }
 
             .navbar .navbar-nav .nav-link {
-                color: white;
+                color: #000;
             }
 
                 .navbar .navbar-nav .nav-link:hover {
@@ -80,7 +83,7 @@
                 }
 
             .navbar .navbar-brand {
-                color: white;
+                color: #000;
             }
 
                 .navbar .navbar-brand:hover {
@@ -88,32 +91,36 @@
                 }
 
             .navbar .dropdown-menu {
-                background-color: black;
+                background-color: #fff;
             }
 
                 .navbar .dropdown-menu .dropdown-item {
-                    color: white;
-                    transition: none;
+                    color: #000;
                 }
 
                     .navbar .dropdown-menu .dropdown-item:hover {
-                        color: blue;
-                        background-color: transparent;
+                        color: #007bff;
+                        background-color: #f8f9fa;
                     }
     </style>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+
+    </nav>
+
     <div class="login-container">
         <div class="container" style="max-width: 500px;">
             <div class="card login-form">
                 <div class="card-header">
-                    <h4 style="font-weight: bold; color:black;">Login Failure!</h4>
+                    <h4 class="login-title">Login Failure!</h4>
                 </div>
                 <div class="card-body">
+                    <p class="card-text">There was a problem with your login attempt. Please try again.</p>
                 </div>
                 <div class="card-footer">
-                    <p style="font-weight: bold; color:black;">One moment while we redirect you...</p>
+                    <p class="card-text">One moment while we redirect you...</p>
                 </div>
             </div>
         </div>
@@ -125,4 +132,5 @@
         }, 5000);
     </script>
 </body>
+
 </html>

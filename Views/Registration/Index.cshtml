@@ -1,5 +1,9 @@
 ﻿@model SeniorProject.Models.RegistrationModel
 
+@{
+    ViewData["Title"] = "Registration Page";
+}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +13,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
         body {
-            background-color: lightskyblue;
+            background-color: #fff;
             font-family: Arial, sans-serif;
         }
 
@@ -23,8 +27,8 @@
             width: 100%;
             height: auto;
             line-height: 3rem;
-            background-color: black;
-            color: white;
+            background-color: #fff;
+            color: #000;
             border-top: 1px solid #dee2e6;
             text-align: center;
         }
@@ -56,11 +60,11 @@
 
         .navbar {
             background-color: #fff;
-            color: white;
+            color: #000;
         }
 
             .navbar .navbar-nav .nav-link {
-                color: white;
+                color: #000;
             }
 
                 .navbar .navbar-nav .nav-link:hover {
@@ -68,7 +72,7 @@
                 }
 
             .navbar .navbar-brand {
-                color: white;
+                color: #000;
             }
 
                 .navbar .navbar-brand:hover {
@@ -76,19 +80,21 @@
                 }
 
             .navbar .dropdown-menu {
-                background-color: black;
+                background-color: #fff;
+                color: #000;
             }
 
                 .navbar .dropdown-menu .dropdown-item {
-                    color: white;
+                    color: #000;
                     transition: none;
                 }
 
                     .navbar .dropdown-menu .dropdown-item:hover {
-                        color: blue;
+                        color: #007bff;
                         background-color: transparent;
                     }
     </style>
+
 </head>
 <body>
     <div class="container">
