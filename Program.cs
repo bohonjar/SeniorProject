@@ -2,10 +2,11 @@ using SeniorProject.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<SecurityService>();
 builder.Services.AddScoped<SecurityDAO>();
@@ -26,6 +27,31 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+var unityGamePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "unitygame");
+if (Directory.Exists(unityGamePath))
+{
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        OnPrepareResponse = ctx =>
+        {
+            var path = ctx.File.Name;
+
+            if (path.EndsWith(".js"))
+            {
+                ctx.Context.Response.Headers.Append("Content-Type", "application/javascript");
+            }
+            else if (path.EndsWith(".wasm"))
+            {
+                ctx.Context.Response.Headers.Append("Content-Type", "application/wasm");
+            }
+            else if (path.EndsWith(".data"))
+            {
+                ctx.Context.Response.Headers.Append("Content-Type", "application/octet-stream");
+            }
+        }
+    });
+}
 
 app.UseRouting();
 
