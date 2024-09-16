@@ -13,9 +13,7 @@
 
     <style>
         body {
-            padding-top: 56px;
-            padding-bottom: 3rem;
-            background-color: #f8f9fa;
+            background-color: white;
             font-family: Arial, sans-serif;
         }
 
@@ -26,7 +24,7 @@
             height: auto;
             line-height: 3rem;
             background-color: #f8f9fa;
-            color: #000;
+            color: black;
             border-top: 1px solid #dee2e6;
             text-align: center;
         }
@@ -51,19 +49,6 @@
                     color: #007bff;
                 }
 
-            .navbar .dropdown-menu {
-                background-color: #fff;
-            }
-
-                .navbar .dropdown-menu .dropdown-item {
-                    color: #000;
-                }
-
-                    .navbar .dropdown-menu .dropdown-item:hover {
-                        color: #007bff;
-                        background-color: #f8f9fa;
-                    }
-
         .section {
             background-color: #fff;
             color: #000;
@@ -72,6 +57,9 @@
             padding: 20px;
             margin-bottom: 20px;
             margin-top: 1rem;
+            margin-left: 9rem;
+            width: 65rem;
+            height: 30rem;
         }
 
         .sidebar {
@@ -108,63 +96,18 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SeniorProject</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    @if (Context.Session.GetString("UserName") != null)
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
-                                Access
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Login" asp-action="Index">Login</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Registration" asp-action="Index">Register</a></li>
-                            </ul>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </div>
+
     </nav>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3 mb-4">
-                <div class="sidebar sticky-top">
-                    <div class="user-header">
-                        Welcome back, @userName!
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-9 mb-4">
                 <div class="section">
-                    <iframe frameborder="0" src="https://itch.io/embed-upload/11490591?color=333333" allowfullscreen="" width="800" height="620"><a href="https://bohonjar.itch.io/game">Play Game on itch.io</a></iframe>
+                    <iframe frameborder="0" src="https://itch.io/embed-upload/11490591?color=333333" allowfullscreen="" width="1000" height="720"><a href="https://bohonjar.itch.io/game">Play Game on itch.io</a></iframe>
                 </div>
             </div>
         </div>
     </div>
-
-    <footer class="footer">
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
