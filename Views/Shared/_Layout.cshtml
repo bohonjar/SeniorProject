@@ -30,18 +30,20 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
-
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SeniorProject</a>
+                <span class="navbar-brand">Cuber</span>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                        @if (Context.Session.GetString("UserName") == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
+                        }
                         @if (Context.Session.GetString("UserName") != null)
                         {
                             <li class="nav-item">
@@ -53,13 +55,18 @@
                         }
                         else
                         {
-                            <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index">Login</a></li>
-                            <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Registration" asp-action="Index">Register</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Registration" asp-action="Index">Register</a>
+                            </li>
                         }
                     </ul>
                 </div>
             </div>
         </nav>
+
     </header>
 
     <div class="container">

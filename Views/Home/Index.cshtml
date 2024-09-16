@@ -11,14 +11,43 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style>
         body {
-            background-color: #fff;
+            background-color: #ffffff;
+            color: #000000;
             font-family: Arial, sans-serif;
         }
 
-        .welcome-container {
-            margin-top: 100px;
-            text-align: center;
+        .navbar {
+            background-color: #f8f9fa;
         }
+
+            .navbar .navbar-nav .nav-link {
+                color: #000000;
+            }
+
+                .navbar .navbar-nav .nav-link:hover {
+                    color: #007bff;
+                }
+
+            .navbar .navbar-brand {
+                color: #000000;
+            }
+
+        .jumbotron {
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 100px 25px;
+            margin-top: 80px;
+        }
+
+            .jumbotron h1 {
+                font-size: 3rem;
+                font-weight: bold;
+            }
+
+            .jumbotron p {
+                font-size: 1.5rem;
+            }
 
         .footer {
             position: fixed;
@@ -27,30 +56,10 @@
             height: auto;
             line-height: 3rem;
             background-color: #f8f9fa;
-            color: black;
+            color: #000000;
             border-top: 1px solid #dee2e6;
             text-align: center;
         }
-
-        .navbar {
-            background-color: #f8f9fa;
-        }
-
-            .navbar .navbar-nav .nav-link {
-                color: #000;
-            }
-
-                .navbar .navbar-nav .nav-link:hover {
-                    color: #007bff;
-                }
-
-            .navbar .navbar-brand {
-                color: #000;
-            }
-
-                .navbar .navbar-brand:hover {
-                    color: #007bff;
-                }
     </style>
 </head>
 <body>
@@ -58,12 +67,10 @@
 
     </nav>
 
-    <div class="container">
-        <div class="row justify-content-center welcome-container">
-            <div class="col-md-8">
-                <h1 class="display-4">Welcome</h1>
-            </div>
-        </div>
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Cuber!</h1>
+        <p class="lead">Guide your cube through thrilling obstacles and master the art of precision and agility!</p>
+        <a class="btn btn-primary btn-lg" href="/Registration" role="button">Join the Adventure</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
