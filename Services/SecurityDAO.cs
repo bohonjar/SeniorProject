@@ -6,7 +6,8 @@ namespace SeniorProject.Services
 {
     public class SecurityDAO
     {
-        string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=SeniorProjectDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        // Updated connection string for Azure SQL Database
+        string connectionString = @"Server=tcp:seniorprojectdb.database.windows.net,1433;Initial Catalog=SeniorProject_db;Persist Security Info=False;User ID=bohonjar;Password={SQLserver6102!};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
         public bool FindUserByNameAndPassword(UserModel user)
         {
@@ -80,6 +81,5 @@ namespace SeniorProject.Services
                 }
             }
         }
-
     }
 }
