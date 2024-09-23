@@ -7,6 +7,7 @@ using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<SecurityService>();
 builder.Services.AddScoped<SecurityDAO>();
@@ -28,6 +29,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+// Custom static file handling for Unity game
 var unityGamePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "unitygame");
 if (Directory.Exists(unityGamePath))
 {
@@ -55,10 +57,11 @@ if (Directory.Exists(unityGamePath))
 
 app.UseRouting();
 
+// Use session before authorization
+app.UseSession();
 app.UseAuthorization();
 
-app.UseSession();
-
+// Map default route
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

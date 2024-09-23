@@ -2,8 +2,6 @@
 using SeniorProject.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 
 namespace SeniorProject.Controllers
 {
@@ -21,8 +19,15 @@ namespace SeniorProject.Controllers
         public IActionResult Index()
         {
             string userName = HttpContext.Session.GetString("UserName");
-            ViewData["UserName"] = userName;
 
+            // Check if the user is logged in
+            if (string.IsNullOrEmpty(userName))
+            {
+                // Redirect to login if not authenticated
+                return RedirectToAction("Index", "Login");
+            }
+
+            ViewData["UserName"] = userName;
             return View();
         }
     }

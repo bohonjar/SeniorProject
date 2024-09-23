@@ -22,10 +22,11 @@ namespace SeniorProject.Controllers
         [HttpPost]
         public IActionResult ProcessLogin(UserModel user)
         {
-            if (_securityService.IsValid(user))
+            if (_securityService.IsValid(user)) // Ensure this method validates credentials correctly
             {
+                // Set session variable
                 HttpContext.Session.SetString("UserName", user.UserName);
-                return RedirectToAction("LoginSuccess");
+                return RedirectToAction("Index", "Dashboard"); // Redirect to Dashboard
             }
             else
             {
@@ -45,7 +46,7 @@ namespace SeniorProject.Controllers
 
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear();
+            HttpContext.Session.Clear(); // Clear session on logout
             return RedirectToAction("Index", "Home");
         }
     }
