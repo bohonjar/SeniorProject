@@ -23,8 +23,22 @@ namespace SeniorProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                _securityService.SaveUser(model);
+                // Check if the username already exists
+                if (_securityService.UsernameExists(model.UserName))
+                {
+                    ModelState.AddModelError("UserName", "Username already exists.");
+                    return View("Index", model);
+                }
 
+                // Check if the email already exists
+                if (_securityService.EmailExists(model.Email))
+                {
+                    ModelState.AddModelError("Email", "Email already exists.");
+                    return View("Index", model);
+                }
+
+                // If both username and email are valid, save the user
+                _securityService.SaveUser(model);
                 return View("RegistrationSuccess", model);
             }
 

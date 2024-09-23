@@ -1,6 +1,7 @@
 ﻿using SeniorProject.Models;
 using System;
 using Microsoft.Data.SqlClient;
+using BCrypt.Net;
 
 namespace SeniorProject.Services
 {
@@ -12,24 +13,21 @@ namespace SeniorProject.Services
         {
             bool success = false;
 
-            string sqlStatement = "SELECT * FROM dbo.Users WHERE username = @username and password = @password";
+            string sqlStatement = "SELECT password FROM dbo.Users WHERE username = @username";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(sqlStatement, connection);
-
                 command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 50).Value = user.UserName;
-                command.Parameters.Add("@password", System.Data.SqlDbType.VarChar, 50).Value = user.Password;
 
                 try
                 {
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
+                    string hashedPassword = (string)command.ExecuteScalar();
 
-                    if (reader.HasRows)
+                    // Verify the password
+                    if (hashedPassword != null && BCrypt.Net.BCrypt.Verify(user.Password, hashedPassword))
                         success = true;
-
-                    reader.Close();
                 }
                 catch (Exception ex)
                 {
@@ -40,6 +38,34 @@ namespace SeniorProject.Services
             return success;
         }
 
+        public bool CheckUsernameExists(string username)
+        {
+            string sqlStatement = "SELECT COUNT(1) FROM dbo.RegisteredUsers WHERE UserName = @UserName";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
+                command.Parameters.AddWithValue("@UserName", username);
+
+                connection.Open();
+                return (int)command.ExecuteScalar() > 0;
+            }
+        }
+
+        public bool CheckEmailExists(string email)
+        {
+            string sqlStatement = "SELECT COUNT(1) FROM dbo.RegisteredUsers WHERE Email = @Email";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlStatement, connection);
+                command.Parameters.AddWithValue("@Email", email);
+
+                connection.Open();
+                return (int)command.ExecuteScalar() > 0;
+            }
+        }
+
         public void InsertUser(RegistrationModel model)
         {
             string sqlStatementUser = "INSERT INTO dbo.Users (username, password) VALUES (@UserName, @Password)";
@@ -48,18 +74,23 @@ namespace SeniorProject.Services
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlTransaction transaction = null;
+                SqlTransaction? transaction = null;
 
                 try
                 {
                     connection.Open();
                     transaction = connection.BeginTransaction();
 
+                    // Hash the password before storing it
+                    string hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.Password);
+
+                    // Insert user
                     SqlCommand commandUser = new SqlCommand(sqlStatementUser, connection, transaction);
                     commandUser.Parameters.AddWithValue("@UserName", model.UserName);
-                    commandUser.Parameters.AddWithValue("@Password", model.Password);
+                    commandUser.Parameters.AddWithValue("@Password", hashedPassword);
                     commandUser.ExecuteNonQuery();
 
+                    // Insert registered user
                     SqlCommand commandRegisteredUser = new SqlCommand(sqlStatementRegisteredUser, connection, transaction);
                     commandRegisteredUser.Parameters.AddWithValue("@FirstName", model.FirstName);
                     commandRegisteredUser.Parameters.AddWithValue("@LastName", model.LastName);
@@ -68,7 +99,7 @@ namespace SeniorProject.Services
                     commandRegisteredUser.Parameters.AddWithValue("@State", model.State);
                     commandRegisteredUser.Parameters.AddWithValue("@Email", model.Email);
                     commandRegisteredUser.Parameters.AddWithValue("@UserName", model.UserName);
-                    commandRegisteredUser.Parameters.AddWithValue("@Password", model.Password);
+                    commandRegisteredUser.Parameters.AddWithValue("@Password", hashedPassword); // Use hashed password
                     commandRegisteredUser.ExecuteNonQuery();
 
                     transaction.Commit();
@@ -80,6 +111,5 @@ namespace SeniorProject.Services
                 }
             }
         }
-
     }
 }
