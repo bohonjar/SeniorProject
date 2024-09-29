@@ -17,6 +17,23 @@
             font-family: Arial, sans-serif;
         }
 
+        .password-strength {
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .weak {
+            color: red;
+        }
+
+        .medium {
+            color: orange;
+        }
+
+        .strong {
+            color: green;
+        }
+
         .registration-container {
             margin-top: 50px;
         }
@@ -91,6 +108,33 @@
                     }
     </style>
 
+    <script>
+     function checkPasswordStrength() {
+            const passwordInput = document.querySelector('input[name="Password"]');
+            const strengthIndicator = document.getElementById('passwordStrength');
+            const password = passwordInput.value;
+
+            let strength = '';
+            strengthIndicator.style.display = 'block'; // Show the indicator
+
+            if (password.length < 6) {
+                strength = 'Too short';
+                strengthIndicator.className = 'weak';
+            } else if (password.length < 10) {
+                strength = 'Weak';
+                strengthIndicator.className = 'weak';
+            } else if (/[A-Z]/.test(password) && /[0-9]/.test(password) && /[^A-Za-z0-9]/.test(password)) {
+                strength = 'Strong';
+                strengthIndicator.className = 'strong';
+            } else {
+                strength = 'Medium';
+                strengthIndicator.className = 'medium';
+            }
+
+            strengthIndicator.textContent = strength;
+        }
+    </script>
+
 </head>
 <body>
     <div class="container">
@@ -116,9 +160,16 @@
                             <span asp-validation-for="Sex" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <input asp-for="Age" class="form-control" placeholder="Age" required />
+                            <select asp-for="Age" class="form-control" required>
+                                <option value="">Select Age</option>
+                                @for (int i = 1; i <= 100; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            </select>
                             <span asp-validation-for="Age" class="text-danger"></span>
                         </div>
+
                         <div class="form-group">
                             <select asp-for="State" class="form-control" required >
                                 <option value="">Select State</option>
@@ -185,9 +236,11 @@
                             <span asp-validation-for="UserName" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <input asp-for="Password" class="form-control" placeholder="Password" required />
+                            <input asp-for="Password" class="form-control" placeholder="Password" required oninput="checkPasswordStrength()" />
                             <span asp-validation-for="Password" class="text-danger"></span>
+                            <div id="passwordStrength" class="password-strength" style="display: none;"></div>
                         </div>
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Register</button>
                         </div>
