@@ -44,6 +44,18 @@ GitHub: bohonjar
 
 DESIGNS/DOCUMENTATION:
 
+User and Admin guide:
+
+https://docs.google.com/document/d/1Xj0XFJa84LoRW9csay_fbcisQgiSuycW/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
+
+Project Proposal:
+
+https://docs.google.com/document/d/1o-Xf7SNz_Ncpk_ENvzfN3U0-C8fmH0He/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
+
+Project Requirements:
+
+https://docs.google.com/document/d/1RA4r5mSfaN0khnKltkBAWZaYJAbTXbrp/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
+
 ![UserDB](https://github.com/user-attachments/assets/8ce181c6-ce5e-429e-9ccf-88d2518657d6)
 ![RegistrationDB](https://github.com/user-attachments/assets/c2ad614a-b5fe-4837-b935-e268818b5d65)
 ![FlowChart](https://github.com/user-attachments/assets/11646e40-b12f-4409-94fd-11715bfc3280)
