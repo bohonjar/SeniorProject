@@ -1,6 +1,6 @@
 # Cuber: A Web-Based Puzzle Adventure
 
-Project Overview:
+# Project Overview:
 
 Cuber is an innovative web-based game platform designed to provide players with an immersive puzzle-solving experience. Developed using Unity WebGL for the game mechanics and ASP.NET MVC for robust backend functionality, this project combines cutting-edge technology with engaging gameplay.
 
