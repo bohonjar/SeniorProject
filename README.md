@@ -32,7 +32,7 @@ SQL Server for efficient user authentication and seamless progress tracking.
 
 The game is hosted on itch.io and embedded within my personal website for easy access.
 
-# Installation:
+# VS Web Application Installation:
 
 To set up and run the web application locally, follow these steps:
 Clone the repository:
@@ -42,7 +42,7 @@ cd SeniorProject
 Set up the SQL database using the included schema provided in the project.
 Open the project in Visual Studio and start the application.
 
-# Executable Installation:
+# Game Executable Installation:
 
 Here is my google drive link to install the game onto your windows computer. Simply click the link, open the installer, and follow the instructions.
 
