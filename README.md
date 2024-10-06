@@ -42,6 +42,12 @@ cd SeniorProject
 Set up the SQL database using the included schema provided in the project.
 Open the project in Visual Studio and start the application.
 
+# Executable Installation:
+
+Here is my google drive link to install the game onto your windows computer. Simply click the link, open the installer, and follow the instructions.
+
+https://drive.google.com/file/d/1GgFdpP_L_8plk26pMsnBS5KLdRYyV94D/view?usp=drive_link
+
 # Usage:
 
 After successfully running the application, users can register or log in to access the game. Once logged in, players can navigate to the game section to embark on their adventure through various levels, testing their skills and reflexes along the way.
