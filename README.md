@@ -54,7 +54,7 @@ Experience the excitement of Cuber by playing the game publicly at https://bohon
 
 Name: Jared Cappa
 Email: jaredscappa18@gmail.com
-GitHub: bohonjar
+GitHub: https://github.com/bohonjar
 
 # DESIGNS/DOCUMENTATION:
 
