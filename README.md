@@ -60,35 +60,37 @@ GitHub: https://github.com/bohonjar
 
 # Project Proposal:
 
-
+https://docs.google.com/document/d/1byKOJwlp7rCxgHeSIb-tx2jpNbA88xun/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
 
 # Project Requirements:
 
-
+https://docs.google.com/document/d/1Ce6-uYmnDLwoKqBwgOvQVYE9rdxAhlvd/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
 
 # Tracibility Matrix (WORD/EXCEL):
 
+https://docs.google.com/document/d/1vo5oUMDwTs5q8jFSF0PUlpLGaQk9P9Az/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
 
+https://docs.google.com/spreadsheets/d/10nfr0_K4L8UUoYoI7MJ3nYMa7dtyE48k/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
 
 # Status Reports:
 
-
+https://docs.google.com/document/d/1we2-ub8b_vk8WnTgjCMXT66lnQ5GWJgw/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
 
 # Test Cases:
 
-
+https://docs.google.com/spreadsheets/d/10kqyk3kdk8Kq2jAcgYNt07tBqjoVhs7B/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
 
 # User Guide and System Admin Guide:
 
-
+https://docs.google.com/document/d/1J27lkwGJGRavo9Zjx63T4gOBLe0Dvopk/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
 
 # Sprint Back Log:
 
-
+https://docs.google.com/spreadsheets/d/1Jchu8Mp56-K4a6YIeBr_RvDEc58xhBI3/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
 
 # Data Dictionary:
 
-
+https://docs.google.com/spreadsheets/d/1KZW6DV579-uK8vfajMObfOAIodS3-Gbw/edit?usp=drive_link&ouid=105004980220325921154&rtpof=true&sd=true
 
 # Other Important Documentation:
 
