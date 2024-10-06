@@ -48,7 +48,7 @@ After successfully running the application, users can register or log in to acce
 
 # Demonstration:
 
-Experience the excitement of Cuber by playing the game publicly at itch.io.
+Experience the excitement of Cuber by playing the game publicly at https://bohonjar.itch.io/cuber
 
 # Contact Information:
 
