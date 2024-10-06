@@ -44,7 +44,7 @@ Open the project in Visual Studio and start the application.
 
 # Usage:
 
-After successfully running the application, users can register or log in to access the game. Once logged in, players can navigate to the game section to embark on their puzzle-solving adventure, tracking their progress along the way.
+After successfully running the application, users can register or log in to access the game. Once logged in, players can navigate to the game section to embark on their adventure through various levels, testing their skills and reflexes along the way.
 
 # Demonstration:
 
