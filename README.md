@@ -1,4 +1,4 @@
-# Cuber: A Web-Based Puzzle Adventure
+# Cuber: A Web-Based Obstacle Adventure
 
 # Project Overview:
 
